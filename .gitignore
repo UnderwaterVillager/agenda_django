@@ -1,3 +1,4 @@
+.vscode/
 ag_env/
 # Django #
 *.log
