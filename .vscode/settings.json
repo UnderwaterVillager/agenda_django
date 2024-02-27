@@ -1,0 +1,10 @@
+{
+    "code-runner.executorMap": {
+        
+        "python": "python -u"
+    },
+    "mypy.dmypyExecutable": "dmypy",
+    "mypy.runUsingActiveInterpreter": false,
+    "python.analysis.typeCheckingMode": "basic",
+    "python.analysis.autoImportCompletions": true
+}
