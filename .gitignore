@@ -1,3 +1,6 @@
+
+media/
+static/
 .vscode/
 ag_env/
 # Django #
