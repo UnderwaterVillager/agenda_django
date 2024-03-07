@@ -17,7 +17,7 @@ class ContactForm(forms.ModelForm):
         cleaned_data = self.cleaned_data
         
         self.add_error(
-            None, ValidationError('Error message', code='invalid')
+            'first_name', ValidationError('Error message', code='invalid')
         )
 
         return super().clean()
