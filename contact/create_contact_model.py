@@ -13,17 +13,17 @@ class ContactForm(forms.ModelForm):
     #     super().__init__(**args, **kwargs)
 
     #     self.fields['first_name'].widgets.attrs.update({'placeholder' : 'Write first name'})
-
+    picture = forms.ImageField(
+        widget=forms.FileInput(
+            attrs={
+                'accept': 'image/*',
+            }
+        )
+    )
     class Meta: 
         model = Contact
-        fields = ('first_name', 'last_name', 'phone', 'email', 'description', 'category')
-        widgets = {
-            'first_name' : forms.TextInput(
-                attrs={
-                    'placeholder': 'Write first name'
-                }
-            )
-        }
+        fields = ('first_name', 'last_name', 'phone', 'email', 'description', 'category', 'picture')
+        
     
     def clean(self):
         #  Retorna clean do super
