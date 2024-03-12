@@ -53,5 +53,11 @@
             </b>
             {{contact.category.name}}
         </p>
+        <div class="contact-links">
+            <a class="btn btn-link" href="{% url "contact:update" contact.id %}">Update</a>
+            <form action="" method="POST">
+                <button class="btn btn-link btn-delete" link="submit">Delete</button>
+            </form>
+        </div>
     </div>
 {% endblock content %}
