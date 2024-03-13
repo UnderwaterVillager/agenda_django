@@ -1,9 +1,9 @@
 from typing import Any, Mapping
 from django import forms
 from django.core.exceptions import ValidationError
-from django.core.files.base import File
-from django.db.models.base import Model
-from django.forms.utils import ErrorList
+from django.contrib.auth.forms import User
+from django.contrib.auth.forms import (UserCreationForm)
+
 
 from contact.models import Contact
 
@@ -46,3 +46,31 @@ class ContactForm(forms.ModelForm):
     #                 code='invalid'
     #             )
     #         )
+
+class RegisterForm(UserCreationForm):
+    first_name = forms.CharField(
+        required=True,
+        min_length=3,
+    )
+
+    last_name = forms.CharField(
+        required=True,
+        min_length=3,
+    )
+
+    email = forms.EmailField()
+
+    class Meta:
+        model = User
+        fields= (
+            'first_name', 'last_name', 'email', 'username', 'password1', 'password2',
+        )
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+
+        if User.objects.filter(email=email).exists():
+            self.add_error(
+                'email', ValidationError("Email already exists", code='invalid')
+            )
+        return email

@@ -235,10 +235,15 @@
   }
   
   .message.warning {
-    background: rgba(255, 255, 0, 0.3);
-    border: 1px solid rgba(255, 255, 0, 90%);
+    background: rgba(82, 55, 235, 0.3);
+    border: 1px solid rgba(31, 2, 83, 0.9);
   }
   
+  .message.info{
+    background: rgba(133, 57, 27, 0.3);
+    border: 1px solid rgba(255, 255, 0, 90%);
+  }
+
   .form-wrapper {
     max-width: 60rem;
     margin: var(--spacing) auto;
