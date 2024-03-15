@@ -112,6 +112,13 @@ class RegisterUpdateForm(forms.ModelForm):
         fields= (
             'first_name', 'last_name', 'email', 'username',
         )
+    def save(self, commit=True):
+        cleaned_data = self.cleaned_data
+        user =  super().save(commit=False)
+        password = cleaned_data.get('password1')
+    
+        if password:
+            user.set_password(password)
 
     def clean(self):
         password1 = self.cleaned_data.get('password1')
