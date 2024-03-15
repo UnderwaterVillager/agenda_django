@@ -44,7 +44,7 @@ def user_update(request):
     if request.method != 'POST':
         return render(
             request,
-            'contact/register.html',
+            'contact/update.html',
             {'form': form}
         )
     form = RegisterUpdateForm(data=request.POST, instance=request.user,)
@@ -53,6 +53,6 @@ def user_update(request):
         form.save()
     return render(
             request,
-            'contact/register.html',
+            'contact/update.html',
             {'form': form}
         )
