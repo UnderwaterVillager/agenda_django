@@ -6,7 +6,7 @@ from contact.models import Contact, Category
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('id', 'first_name', 'last_name', 'phone', 'show',)
+    list_display = ('id', 'first_name', 'last_name', 'phone', 'show', 'owner',)
     ordering = 'id',
     list_filter = 'created_date',
     search_fields = 'id', 'first_name', 'last_name',

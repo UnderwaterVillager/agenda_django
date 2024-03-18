@@ -25,7 +25,7 @@ class Contact(models.Model):
     show = models.BooleanField(default=True)
     picture = models.ImageField(blank=True, upload_to='pictures/%Y/%m/')
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, blank=True, null=True)
-    owner = models.ForeignKey (User, on_delete=models.SET_NULL, blank=True, null=True),
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, blank=True, null=True)
 
     def __str__(self) -> str:
         return f'{self.first_name} {self.last_name}'
